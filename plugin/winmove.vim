@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.1
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 2009-09-12.
+" Last Change: 2009-11-17.
 "
 " Change Log: {{{2
 "   0.0.0: Initial upload.
@@ -114,8 +114,10 @@ let s:mappings = {
 \ }
 for key in keys(s:mappings)
     if s:mappings[key] != ""
-        let fmt = 'nnoremap <silent> %s    :<C-u>call <SID>MoveTo("%s")<CR>'
-        execute printf(fmt, s:mappings[key], key)
+        execute 'nnoremap'
+                    \ '<silent>'
+                    \ s:mappings[key]
+                    \ printf(':<C-u>call <SID>MoveTo(%s)<CR>', string(key))
     endif
 endfor
 unlet s:mappings
