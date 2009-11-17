@@ -11,6 +11,8 @@ scriptencoding utf-8
 " Change Log: {{{2
 "   0.0.0: Initial upload.
 "   0.0.1: my e-mail address was wrong :-p
+"   0.0.2: Allow range before mappings
+"          e.g.: '10<Up>' moves gVim window to the upper 10 times
 " }}}2
 "
 " Description:
