@@ -100,7 +100,7 @@ func! s:MoveTo( dest ) range
         let winpos['y'] = winpos['y'] + g:wm_move_y * repeat
     endif
 
-    execute 'winpos ' . winpos['x'] . ' ' . winpos['y']
+    execute 'winpos' winpos['x'] winpos['y']
 endfunc
 
 " }}}1
