@@ -86,9 +86,9 @@ endif
 
 " FUNCTION DEFINITION {{{1
 
-func! s:MoveTo( dest ) range
+func! s:MoveTo( dest )
     let winpos = { 'x':getwinposx(), 'y':getwinposy() }
-    let repeat = a:lastline - a:firstline + 1
+    let repeat = v:count1
 
     if a:dest == '>'
         let winpos['x'] = winpos['x'] + g:wm_move_x * repeat
