@@ -18,7 +18,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.2
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 2010-01-24.
+" Last Change: 2010-02-09.
 "
 " Change Log: {{{2
 "   0.0.0: Initial upload.
@@ -120,21 +120,23 @@ endfunc
 " }}}1
 
 " MAPPING {{{1
-let s:mappings = {
-    \ '^': g:wm_move_up,
-    \ '>': g:wm_move_right,
-    \ 'v': g:wm_move_down,
-    \ '<': g:wm_move_left
-\ }
-for key in keys(s:mappings)
-    if s:mappings[key] != ""
-        execute 'nnoremap'
-                    \ '<silent>'
-                    \ s:mappings[key]
-                    \ printf(':<C-u>call <SID>MoveTo(%s)<CR>', string(key))
-    endif
-endfor
-unlet s:mappings
+nnoremap <Plug>(winmove-up)     :<C-u>call <SID>MoveTo('^')<CR>
+nnoremap <Plug>(winmove-right)  :<C-u>call <SID>MoveTo('>')<CR>
+nnoremap <Plug>(winmove-down)   :<C-u>call <SID>MoveTo('v')<CR>
+nnoremap <Plug>(winmove-left)   :<C-u>call <SID>MoveTo('<')<CR>
+
+if g:wm_move_up != ''
+    execute 'nmap' g:wm_move_up '<Plug>(winmove-up)'
+endif
+if g:wm_move_right != ''
+    execute 'nmap' g:wm_move_right '<Plug>(winmove-right)'
+endif
+if g:wm_move_down != ''
+    execute 'nmap' g:wm_move_down '<Plug>(winmove-down)'
+endif
+if g:wm_move_left != ''
+    execute 'nmap' g:wm_move_left '<Plug>(winmove-left)'
+endif
 " }}}1
 
 " RESTORE CPO {{{1
