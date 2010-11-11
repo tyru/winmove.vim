@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.2
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 11-Nov-2010.
+" Last Change: 2010-11-11.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{2
@@ -19,14 +19,14 @@ scriptencoding utf-8
 " }}}2
 "
 " Description:
-"   Move your gVim from mappings.
+"   Move your Vim from mappings.
 "
 " Usage:
 "   MAPPING:
-"       <Up>        move your gVim up.
-"       <Right>     move your gVim right.
-"       <Down>      move your gVim down.
-"       <Left>      move your gVim left.
+"       <Up>        move your Vim up.
+"       <Right>     move your Vim right.
+"       <Down>      move your Vim down.
+"       <Left>      move your Vim left.
 "
 "   GLOBAL VARIABLES:
 "       g:wm_move_up (default:'<Up>')
@@ -42,10 +42,10 @@ scriptencoding utf-8
 "           if empty string, no mapping is defined.
 "
 "       g:wm_move_x (default:20)
-"           gVim use this when move left or right.
+"           Vim use this when move left or right.
 "
 "       g:wm_move_y (default:15)
-"           gVim use this when move up or down.
+"           Vim use this when move up or down.
 "
 "
 "==================================================
