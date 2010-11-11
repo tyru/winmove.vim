@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.2
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 2010-11-11.
+" Last Change: 11-Nov-2010.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{2
@@ -58,10 +58,12 @@ endif
 let g:loaded_winmove = 1
 " }}}1
 
-" NOTE: THIS PLUGIN CAN'T WORK IN TERMINAL.
-if ! has('gui_running')
+" NOTE: THIS PLUGIN WORK ON TERMINAL ALSO.
+try
+    silent! winpos
+catch /^Vim\%((\a\+)\)\=:E188/
     finish
-endif
+endtry
 
 " SAVING CPO {{{1
 let s:save_cpo = &cpo
@@ -92,7 +94,16 @@ endif
 " FUNCTION DEFINITION {{{1
 
 func! s:MoveTo(dest)
-    let winpos = { 'x':getwinposx(), 'y':getwinposy() }
+    if has('gui_running')
+        let winpos = { 'x':getwinposx(), 'y':getwinposy() }
+    else
+        redir => out | silent! winpos | redir END
+        let mpos = matchlist(out, '^[^:]\+: X \(\d\+\), Y \(\d\+\)')
+        if len(mpos) == 0
+            return
+        endif
+        let winpos = { 'x':mpos[1], 'y':mpos[2] }
+    endif
     let repeat = v:count1
 
     if a:dest == '>'
