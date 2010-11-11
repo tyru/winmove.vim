@@ -126,10 +126,10 @@ endfunction
 " }}}
 
 " MAPPING {{{
-nnoremap <Plug>(winmove-up)     :<C-u>call <SID>MoveTo('^')<CR>
-nnoremap <Plug>(winmove-right)  :<C-u>call <SID>MoveTo('>')<CR>
-nnoremap <Plug>(winmove-down)   :<C-u>call <SID>MoveTo('v')<CR>
-nnoremap <Plug>(winmove-left)   :<C-u>call <SID>MoveTo('<')<CR>
+nnoremap <silent> <Plug>(winmove-up)     :<C-u>call <SID>MoveTo('^')<CR>
+nnoremap <silent> <Plug>(winmove-right)  :<C-u>call <SID>MoveTo('>')<CR>
+nnoremap <silent> <Plug>(winmove-down)   :<C-u>call <SID>MoveTo('v')<CR>
+nnoremap <silent> <Plug>(winmove-left)   :<C-u>call <SID>MoveTo('<')<CR>
 
 if g:wm_move_up != ''
     execute 'nmap' g:wm_move_up '<Plug>(winmove-up)'
