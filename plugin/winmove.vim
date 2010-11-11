@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.2
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 10-Nov-2010.
+" Last Change: 2010-11-11.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{2
@@ -14,6 +14,8 @@ scriptencoding utf-8
 "   0.0.1: my e-mail address was wrong :-p
 "   0.0.2: Allow range before mappings
 "          e.g.: '10<Up>' moves gVim window to the upper 10 times
+"   0.0.3: Fix bug: gvim moves oppositely on MacVim.
+"          Thanks ujihisa for the patch.
 " }}}2
 "
 " Description:
