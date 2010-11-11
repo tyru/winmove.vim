@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.2
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 2010-10-24.
+" Last Change: 10-Nov-2010.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{2
@@ -89,7 +89,7 @@ endif
 
 " FUNCTION DEFINITION {{{1
 
-func! s:MoveTo( dest )
+func! s:MoveTo(dest)
     let winpos = { 'x':getwinposx(), 'y':getwinposy() }
     let repeat = v:count1
 
