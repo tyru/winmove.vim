@@ -98,9 +98,13 @@ func! s:MoveTo(dest)
     elseif a:dest == '<'
         let winpos['x'] = winpos['x'] - g:wm_move_x * repeat
     elseif a:dest == '^'
-        let winpos['y'] = winpos['y'] - g:wm_move_y * repeat
+        let winpos['y'] = has("gui_macvim") ?
+              \ winpos['y'] + g:wm_move_y * repeat :
+              \ winpos['y'] - g:wm_move_y * repeat
     elseif a:dest == 'v'
-        let winpos['y'] = winpos['y'] + g:wm_move_y * repeat
+        let winpos['y'] = has("gui_macvim") ?
+              \ winpos['y'] - g:wm_move_y * repeat :
+              \ winpos['y'] + g:wm_move_y * repeat
     endif
 
     execute 'winpos' winpos['x'] winpos['y']
