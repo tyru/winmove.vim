@@ -4,7 +4,7 @@ scriptencoding utf-8
 " DOCUMENT {{{
 "==================================================
 " Name: WinMove
-" Version: 0.0.2
+" Version: 0.0.3
 " Author:  tyru <tyru.exe@gmail.com>
 " Last Change: 2010-11-11.
 " License: Distributable under the same terms as Vim itself (see :help license)
