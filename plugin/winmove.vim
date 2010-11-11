@@ -1,7 +1,7 @@
 " vim:foldmethod=marker:fen:
 scriptencoding utf-8
 
-" DOCUMENT {{{1
+" DOCUMENT {{{
 "==================================================
 " Name: WinMove
 " Version: 0.0.2
@@ -9,14 +9,14 @@ scriptencoding utf-8
 " Last Change: 2010-11-11.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
-" Change Log: {{{2
+" Change Log: {{{
 "   0.0.0: Initial upload.
 "   0.0.1: my e-mail address was wrong :-p
 "   0.0.2: Allow range before mappings
 "          e.g.: '10<Up>' moves gVim window to the upper 10 times
 "   0.0.3: Fix bug: gvim moves oppositely on MacVim.
 "          Thanks ujihisa for the patch.
-" }}}2
+" }}}
 "
 " Description:
 "   Move your Vim from mappings.
@@ -49,14 +49,14 @@ scriptencoding utf-8
 "
 "
 "==================================================
-" }}}1
+" }}}
 
-" INCLUDE GUARD {{{1
+" INCLUDE GUARD {{{
 if exists('g:loaded_winmove') && g:loaded_winmove != 0
     finish
 endif
 let g:loaded_winmove = 1
-" }}}1
+" }}}
 
 " NOTE: THIS PLUGIN WORK ON TERMINAL ALSO.
 try
@@ -65,12 +65,12 @@ catch /^Vim\%((\a\+)\)\=:E188/
     finish
 endtry
 
-" SAVING CPO {{{1
+" SAVING CPO {{{
 let s:save_cpo = &cpo
 set cpo&vim
-" }}}1
+" }}}
 
-" GLOBAL VARIABLES {{{1
+" GLOBAL VARIABLES {{{
 if ! exists('g:wm_move_up')
     let g:wm_move_up = '<Up>'
 endif
@@ -89,11 +89,11 @@ endif
 if ! exists('g:wm_move_y')
     let g:wm_move_y = 15
 endif
-" }}}1
+" }}}
 
-" FUNCTION DEFINITION {{{1
+" FUNCTION DEFINITION {{{
 
-func! s:MoveTo(dest)
+function! s:MoveTo(dest)
     if has('gui_running')
         let winpos = { 'x':getwinposx(), 'y':getwinposy() }
     else
@@ -121,11 +121,11 @@ func! s:MoveTo(dest)
     endif
 
     execute 'winpos' winpos['x'] winpos['y']
-endfunc
+endfunction
 
-" }}}1
+" }}}
 
-" MAPPING {{{1
+" MAPPING {{{
 nnoremap <Plug>(winmove-up)     :<C-u>call <SID>MoveTo('^')<CR>
 nnoremap <Plug>(winmove-right)  :<C-u>call <SID>MoveTo('>')<CR>
 nnoremap <Plug>(winmove-down)   :<C-u>call <SID>MoveTo('v')<CR>
@@ -143,9 +143,9 @@ endif
 if g:wm_move_left != ''
     execute 'nmap' g:wm_move_left '<Plug>(winmove-left)'
 endif
-" }}}1
+" }}}
 
-" RESTORE CPO {{{1
+" RESTORE CPO {{{
 let &cpo = s:save_cpo
-" }}}1
+" }}}
 
