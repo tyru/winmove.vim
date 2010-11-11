@@ -60,7 +60,7 @@ let g:loaded_winmove = 1
 
 " NOTE: THIS PLUGIN WORK ON TERMINAL ALSO.
 try
-    silent! winpos
+    silent winpos
 catch /^Vim\%((\a\+)\)\=:E188/
     finish
 endtry
