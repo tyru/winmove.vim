@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.3
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 2010-11-11.
+" Last Change: 25-Nov-2010.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{
@@ -98,10 +98,8 @@ function! s:MoveTo(dest)
         let winpos = { 'x':getwinposx(), 'y':getwinposy() }
     else
         redir => out | silent! winpos | redir END
-        let mpos = matchlist(out, '^[^:]\+: X \(\d\+\), Y \(\d\+\)')
-        if len(mpos) == 0
-            return
-        endif
+        let mpos = matchlist(out, '^[^:]\+: X \(-\?\d\+\), Y \(-\?\d\+\)')
+        if len(mpos) == 0 | return | endif
         let winpos = { 'x':mpos[1], 'y':mpos[2] }
     endif
     let repeat = v:count1
@@ -119,6 +117,8 @@ function! s:MoveTo(dest)
               \ winpos['y'] - g:wm_move_y * repeat :
               \ winpos['y'] + g:wm_move_y * repeat
     endif
+    if winpos['x'] < 0 | let winpos['x'] = 0 | endif
+    if winpos['y'] < 0 | let winpos['y'] = 0 | endif
 
     execute 'winpos' winpos['x'] winpos['y']
 endfunction
