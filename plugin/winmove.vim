@@ -51,12 +51,18 @@ scriptencoding utf-8
 "==================================================
 " }}}
 
-" INCLUDE GUARD {{{
-if exists('g:loaded_winmove') && g:loaded_winmove != 0
+" CHECK AVAILABILITY {{{
+
+" NOTE: Delay the a load of this script until VimEnter.
+" Because :winpos raised an error on gVim (Windows)
+" while loading this script at startup.
+augroup winmove
+    autocmd!
+    autocmd VimEnter * let s:delayed = 1 | source <sfile>
+augroup END
+if !exists('s:delayed')
     finish
 endif
-let g:loaded_winmove = 1
-" }}}
 
 " THIS PLUGIN WORK ON TERMINAL ALSO.
 try
@@ -64,6 +70,14 @@ try
 catch /^Vim\%((\a\+)\)\=:E188/
     finish
 endtry
+" }}}
+
+" INCLUDE GUARD {{{
+if exists('g:loaded_winmove') && g:loaded_winmove != 0
+    finish
+endif
+let g:loaded_winmove = 1
+" }}}
 
 " SAVING CPO {{{
 let s:save_cpo = &cpo
