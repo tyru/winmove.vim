@@ -4,7 +4,7 @@ scriptencoding utf-8
 " DOCUMENT {{{
 "==================================================
 " Name: WinMove
-" Version: 0.0.3
+" Version: 0.0.4
 " Author:  tyru <tyru.exe@gmail.com>
 " Last Change: 2010-12-27.
 " License: Distributable under the same terms as Vim itself (see :help license)
@@ -16,6 +16,9 @@ scriptencoding utf-8
 "          e.g.: '10<Up>' moves gVim window to the upper 10 times
 "   0.0.3: Fix bug: gvim moves oppositely on MacVim.
 "          Thanks ujihisa for the patch.
+"   0.0.4: Fix bug: :winpos raised an error
+"          because :winpos is not available at startup.
+"          (the problem occurred on gVim Windows XP)
 " }}}
 "
 " Description:
