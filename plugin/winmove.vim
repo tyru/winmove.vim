@@ -6,7 +6,7 @@ scriptencoding utf-8
 " Name: WinMove
 " Version: 0.0.3
 " Author:  tyru <tyru.exe@gmail.com>
-" Last Change: 25-Nov-2010.
+" Last Change: 2010-12-27.
 " License: Distributable under the same terms as Vim itself (see :help license)
 "
 " Change Log: {{{
@@ -58,7 +58,7 @@ endif
 let g:loaded_winmove = 1
 " }}}
 
-" NOTE: THIS PLUGIN WORK ON TERMINAL ALSO.
+" THIS PLUGIN WORK ON TERMINAL ALSO.
 try
     silent winpos
 catch /^Vim\%((\a\+)\)\=:E188/
