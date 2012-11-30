@@ -1,0 +1,106 @@
+*winmove.txt* *winmove*
+
+Author:
+  tyru <tyru.exe@gmail.com>
+Version: 0.0.4
+License: Distributable under the same terms as Vim itself (see :help license)
+
+==============================================================================
+CONTENTS						*winmove-contents*
+
+Introduction		|winmove-introduction|
+Requirements		|winmove-requirements|
+Interface			|winmove-interface|
+  Keymappings		|winmove-keymappings|
+  Variables			|winmove-variables|
+  Commands			|winmove-commands|
+TODO				|winmove-todo|
+Changelog			|winmove-changelog|
+
+
+==============================================================================
+INTRODUCTION						*winmove-introduction* {{{
+}}}
+==============================================================================
+REQUIREMENTS						*winmove-requirements* {{{
+}}}
+==============================================================================
+INTERFACE				*winmove-interface* {{{
+------------------------------------------------------------------------------
+KEYMAPPINGS					*winmove-keymappings* {{{
+
+<Plug>(winmove-up)        move your Vim up.
+<Plug>(winmove-right)     move your Vim right.
+<Plug>(winmove-down)      move your Vim down.
+<Plug>(winmove-left)      move your Vim left.
+
+Default keymappings
+--------------------
+<Up>        <Plug>(winmove-up)
+<Right>     <Plug>(winmove-right)
+<Down>      <Plug>(winmove-down)
+<Left>      <Plug>(winmove-left)
+
+
+}}}
+------------------------------------------------------------------------------
+VARIABLES					*winmove-variables* {{{
+
+					*g:winmove_no_default_keymappings*
+g:winmove_no_default_keymappings
+	If this variable is defined and non-zero,
+	|winmove| will not define default keymappings.
+
+g:wm_move_up (default: "<Up>")
+	if empty string, no mapping is defined.
+
+g:wm_move_right (default: "<Right>")
+	if empty string, no mapping is defined.
+
+g:wm_move_down (default: "<Down>")
+	if empty string, no mapping is defined.
+
+g:wm_move_left (default: "<Left>")
+	if empty string, no mapping is defined.
+
+g:wm_move_x (default: 20)
+	Vim use this when move left or right.
+
+g:wm_move_y (default: 15)
+	Vim use this when move up or down.
+
+
+}}}
+------------------------------------------------------------------------------
+COMMANDS					*winmove-commands* {{{
+}}}
+}}}
+==============================================================================
+TODO						*winmove-todo* {{{
+
+any request? ;)
+
+https://github.com/tyru/autochmodx.vim/issues
+
+}}}
+==============================================================================
+CHANGELOG						*winmove-changelog* {{{
+
+0.0.0:
+- Initial upload.
+0.0.1:
+- my e-mail address was wrong :-p
+0.0.2:
+- Allow range before mappings
+  e.g.: '10<Up>' moves gVim window to the upper 10 times
+0.0.3:
+- Fix bug: gvim moves oppositely on MacVim.
+  Thanks ujihisa for the patch.
+0.0.4:
+- Fix bug: :winpos raised an error
+  because :winpos is not available at startup.
+  - The problem occurred on gVim Windows XP
+
+}}}
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=4:ft=help:norl:noet:fdm=marker:fen
