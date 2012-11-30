@@ -62,6 +62,13 @@ nnoremap <silent> <Plug>(winmove-right)  :<C-u>call winmove#to_right()<CR>
 nnoremap <silent> <Plug>(winmove-down)   :<C-u>call winmove#to_down()<CR>
 nnoremap <silent> <Plug>(winmove-left)   :<C-u>call winmove#to_left()<CR>
 
+if get(g:, 'winmove_no_default_keymappings', 0)
+    let g:wm_move_up    = ''
+    let g:wm_move_right = ''
+    let g:wm_move_down  = ''
+    let g:wm_move_left  = ''
+endif
+
 if g:wm_move_up != ''
     execute 'nmap' g:wm_move_up '<Plug>(winmove-up)'
 endif
