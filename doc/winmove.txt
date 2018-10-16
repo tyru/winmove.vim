@@ -80,7 +80,7 @@ TODO						*winmove-todo* {{{
 
 any request? ;)
 
-https://github.com/tyru/autochmodx.vim/issues
+https://github.com/tyru/winmove.vim/issues
 
 }}}
 ==============================================================================
